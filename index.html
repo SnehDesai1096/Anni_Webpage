@@ -11,15 +11,12 @@
     <!-- Link external CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<audio id="bg-music" autoplay loop muted>
-    <source src="music.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
 <body>
 
 <!-- Floating clouds -->
 <div class="cloud one">☁️</div>
 <div class="cloud two">☁️</div>
+<div class="stars" id="stars"></div>
 
 <div class="container">
 
@@ -37,18 +34,28 @@
         box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
         🎵 Music
     </button>
-    <h1 class="fade-in">Miles Apart, Hearts Together ❤️</h1>
+<!-- Can be removed if not needed -->
+    <!-- <button id="mode-toggle" style="
+        position: fixed;
+        top: 20px; right: 20px;
+        background: rgba(255,255,255,0.8);
+        border-radius: 25px;
+        padding: 6px 12px;
+        cursor: pointer;">
+        🌙 / ☀️
+    </button> -->
+    <h1 class="fade-in">Miles Apart, Hearts Still Together ❤️</h1>
     <p class="fade-in fade-delay-1">Happy First Anniversary, my love</p>
 
     <!-- TWO CITIES -->
     <h2 class="fade-in fade-delay-1">🌍 Across the Miles</h2>
     <div class="cities fade-in fade-delay-2">
-        <span>📍 Your City</span>
+        <span>📍 USA</span>
         <div class="line-container">
             <div class="line"></div>
             <div class="heart">❤️</div>
         </div>
-        <span>📍 My City</span>
+        <span>📍 India</span>
     </div>
     <p class="quote fade-in fade-delay-2">
         Love learned the distance before we did.
@@ -56,18 +63,46 @@
 
     <!-- COUNTER -->
     <h2 class="fade-in fade-delay-2">🌟 Our Time Together</h2>
-    <div class="counter fade-in fade-delay-3">We’ve been married for</div>
-    <div class="highlight fade-in fade-delay-3" id="days"></div>
-    <div class="counter fade-in fade-delay-3">Days</div>
-    <div class="counter fade-in fade-delay-3" id="time"></div>
+
+    <div class="time-wrapper fade-in fade-delay-3">
+        <div class="time-box">
+            <span class="time-number" id="days">
+                <span class="flip">0</span>
+            </span>
+            <span class="time-label">Days</span>
+        </div>
+
+        <div class="time-box">
+            <span class="time-number" id="hours">
+                <span class="flip">0</span>
+            </span>
+            <span class="time-label">Hours</span>
+        </div>
+
+        <div class="time-box">
+            <span class="time-number" id="minutes">
+                <span class="flip">0</span>
+            </span>
+            <span class="time-label">Minutes</span>
+        </div>
+
+        <div class="time-box">
+            <span class="time-number" id="seconds">
+                <span class="flip">0</span>
+            </span>
+            <span class="time-label">Seconds</span>
+        </div>
+    </div>
 
     <p class="quote fade-in fade-delay-3">
-        “Every second apart is a second closer to forever.”
+        Every moment apart still belongs to us.
     </p>
+
+    
 
     <footer class="fade-in fade-delay-3">
         Forever yours,<br>
-        <strong>Your Husband ❤️</strong>
+        <strong>Sneh Desai ❤️</strong>
     </footer>
 
 </div>

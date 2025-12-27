@@ -1,5 +1,19 @@
 const weddingDate = new Date("2024-12-28T00:00:00");
 
+function updateUnit(id, value) {
+    const container = document.getElementById(id);
+    const current = container.querySelector(".flip");
+
+    if (current.textContent !== String(value)) {
+        const newSpan = document.createElement("span");
+        newSpan.className = "flip";
+        newSpan.textContent = value;
+
+        container.innerHTML = "";
+        container.appendChild(newSpan);
+    }
+}
+
 function updateCounter() {
     const now = new Date();
     const diff = now - weddingDate;
@@ -9,13 +23,15 @@ function updateCounter() {
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
     const seconds = Math.floor((diff / 1000) % 60);
 
-    document.getElementById("days").innerText = days;
-    document.getElementById("time").innerText =
-        `${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+    updateUnit("days", days);
+    updateUnit("hours", hours);
+    updateUnit("minutes", minutes);
+    updateUnit("seconds", seconds);
 }
 
 updateCounter();
 setInterval(updateCounter, 1000);
+
 
 const music = document.getElementById("bg-music");
 
@@ -61,3 +77,67 @@ toggleBtn.addEventListener("click", () => {
         toggleBtn.textContent = "🎵 Music";
     }
 });
+
+// Dark mode 
+function setDayNightMode() {
+    const hour = new Date().getHours();
+    if (hour >= 18 || hour < 6) {
+        document.body.classList.add("night");
+        document.body.classList.remove("day");
+    } else {
+        document.body.classList.add("day");
+        document.body.classList.remove("night");
+    }
+
+    // Also apply classes to container, time-box, and quotes for readability
+    const container = document.querySelector(".container");
+    const timeBoxes = document.querySelectorAll(".time-box");
+    const quotes = document.querySelectorAll(".quote");
+
+    if(document.body.classList.contains("night")) {
+        container.classList.add("night");
+        container.classList.remove("day");
+        timeBoxes.forEach(box => {
+            box.classList.add("night");
+            box.classList.remove("day");
+        });
+        quotes.forEach(q => {
+            q.classList.add("night");
+            q.classList.remove("day");
+        });
+    } else {
+        container.classList.add("day");
+        container.classList.remove("night");
+        timeBoxes.forEach(box => {
+            box.classList.add("day");
+            box.classList.remove("night");
+        });
+        quotes.forEach(q => {
+            q.classList.add("day");
+            q.classList.remove("night");
+        });
+    }
+}
+
+const timeBoxes = document.querySelectorAll(".time-box");
+
+if(document.body.classList.contains("night")) {
+    timeBoxes.forEach(box => {
+        box.classList.add("night");
+        box.classList.remove("day");
+    });
+} else {
+    timeBoxes.forEach(box => {
+        box.classList.add("day");
+        box.classList.remove("night");
+    });
+}
+
+setDayNightMode();
+
+// Optional: Update day/night mode every hour
+// document.getElementById("mode-toggle").addEventListener("click", () => {
+//     document.body.classList.toggle("night");
+//     document.body.classList.toggle("day");
+//     setDayNightMode(); // re-apply classes for text & container
+// });
