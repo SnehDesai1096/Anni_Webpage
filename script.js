@@ -207,7 +207,7 @@ secondsBox.addEventListener("click", () => {
         document.body.style.opacity = 0;
 
         setTimeout(() => {
-            window.location.href = "secret.html";
+            window.location.href = "./secret.html";
         }, 1000);
     }
 });
