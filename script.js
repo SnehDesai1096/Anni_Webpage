@@ -80,46 +80,24 @@ toggleBtn.addEventListener("click", () => {
 
 // Dark mode 
 function setDayNightMode() {
-    const hour = new Date().getHours();
-    const isNight = hour >= 18 || hour < 6;
-    console.log(`Current hour: ${hour}, Applying night mode: ${isNight}`); // Debugging log
-
-    if (isNight) {
-        document.body.classList.add("night");
-        document.body.classList.remove("day");
-    } else {
-        document.body.classList.add("day");
-        document.body.classList.remove("night");
-    }
+    document.body.classList.add("night");
+    document.body.classList.remove("day");
 
     // Also apply classes to container, time-box, and quotes for readability
     const container = document.querySelector(".container");
     const timeBoxes = document.querySelectorAll(".time-box");
     const quotes = document.querySelectorAll(".quote");
 
-    if(document.body.classList.contains("night")) {
-        container.classList.add("night");
-        container.classList.remove("day");
-        timeBoxes.forEach(box => {
-            box.classList.add("night");
-            box.classList.remove("day");
-        });
-        quotes.forEach(q => {
-            q.classList.add("night");
-            q.classList.remove("day");
-        });
-    } else {
-        container.classList.add("day");
-        container.classList.remove("night");
-        timeBoxes.forEach(box => {
-            box.classList.add("day");
-            box.classList.remove("night");
-        });
-        quotes.forEach(q => {
-            q.classList.add("day");
-            q.classList.remove("night");
-        });
-    }
+    container.classList.add("night");
+    container.classList.remove("day");
+    timeBoxes.forEach(box => {
+        box.classList.add("night");
+        box.classList.remove("day");
+    });
+    quotes.forEach(q => {
+        q.classList.add("night");
+        q.classList.remove("day");
+    });
 }
 
 const timeBoxes = document.querySelectorAll(".time-box");

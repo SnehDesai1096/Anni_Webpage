@@ -13,4 +13,4 @@
 These changes ensure that the project structure is cleaner and navigation works seamlessly on GitHub Pages.
 
 ## [Unreleased]
-- Added debugging logs to `setDayNightMode()` in `script.js` to verify if the 'night' class is applied correctly.
+- Updated `setDayNightMode()` in `script.js` to permanently apply night mode by removing time-based logic.
