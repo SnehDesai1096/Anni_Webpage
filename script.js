@@ -81,7 +81,10 @@ toggleBtn.addEventListener("click", () => {
 // Dark mode 
 function setDayNightMode() {
     const hour = new Date().getHours();
-    if (hour >= 18 || hour < 6) {
+    const isNight = hour >= 18 || hour < 6;
+    console.log(`Current hour: ${hour}, Applying night mode: ${isNight}`); // Debugging log
+
+    if (isNight) {
         document.body.classList.add("night");
         document.body.classList.remove("day");
     } else {
